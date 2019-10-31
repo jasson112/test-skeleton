@@ -1,16 +1,16 @@
-webserver:
+webserver-sunmedia:
   image: webdevops/php-nginx-dev:7.1
   volumes:
     - ./:/var/www
   links:
-    - database
+    - database-sunmedia
   environment:
     - WEB_DOCUMENT_ROOT=/var/www/public
     - WEB_DOCUMENT_INDEX=index.php
   ports:
-    - "80:80"
+    - "5080:80"
 
-database:
+database-sunmedia:
   image: mysql:5.7
   volumes:
       - /var/lib/mysql

@@ -3,54 +3,90 @@
 
 namespace App\Entity;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Add
+ *
+ * @ORM\Table(name="add")
+ * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
+ */
 class Ad
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     *
      */
     private $name;
+
     /**
-     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Component", mappedBy="ads")
      */
     private $components;
 
-    public function __construct(
-        string $name
-    ) {
-        $this->name = $name;
-
+    public function __construct()
+    {
         $this->components = new ArrayCollection();
     }
 
-    /**
-     * @return int
-     */
-    public function id()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function name()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
     /**
-     * @return Collection
+     * @return Collection|Component[]
      */
-    public function components(): Collection
+    public function getComponents(): Collection
     {
         return $this->components;
+    }
+
+    public function addComponent(Component $component): self
+    {
+        if (!$this->components->contains($component)) {
+            $this->components[] = $component;
+            $component->setAds($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComponent(Component $component): self
+    {
+        if ($this->components->contains($component)) {
+            $this->components->removeElement($component);
+            // set the owning side to null (unless already changed)
+            if ($component->getAds() === $this) {
+                $component->setAds(null);
+            }
+        }
+
+        return $this;
     }
 }

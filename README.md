@@ -31,4 +31,16 @@ Usuarios:
   - nombre de usuario: **sunmedia**
   - password: **sunmedia**
   
+Symfony
+
+- actualizar base de datos:
+    ```
+    php bin/console doctrine:schema:update --force
+    ```
+
+- para crear un usuario para el backend:
+    ```
+    php bin/console fos:user:create admin admin@example.com admin --super-admin
+    ```
+
   

@@ -1,0 +1,7 @@
+easy_admin:
+  design:
+    menu:
+      - { label: 'Dashboard', route: 'admin_dashboard', default: true }
+      - label: 'General'
+        children:
+          - { entity: 'User', icon: 'asterisk' }
