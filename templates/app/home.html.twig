@@ -1,6 +1,66 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    homepage
+    <section class="hero is-fullheight">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            <header class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                            <img src="https://www.fibonad.com/img/logo.svg" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        {% dump ads %}
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1">
+                    Ads !
+                </h1>
+                {% for ad in ads %}
+                    <hr>
+                    <h1 class="title">
+                        {{ ad.name }}
+                    </h1>
+                    {% for component in ad.components %}
+                        <h2 class="subtitle is-2">
+                            {{ component.name }}
+                        </h2>
+                        {% if 'image' in component.type %}
+                            <div class="card-image has-text-centered">
+                                <figure class="image is-2by1">
+                                    <img src="{{ path_ad_component ~ "/" ~ component.attach }}">
+                                </figure>
+                            </div>
+                        {% else %}
+                            <div class="card-image has-text-centered">
+                                <figure class="image">
+                                    <video width="100%" autoplay>
+                                        <source src="{{ path_ad_component ~ "/" ~ component.attach }}" type="{{ component.type }}">
+                                        <source src="{{ path_ad_component ~ "/" ~ component.attach }}" type="{{ component.type }}">
+                                        Your browser does not support HTML5 video.
+                                    </video>
+                                </figure>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                {% if ads | length == 0 %}
+                    <h2 class="subtitle">
+                        NO ADS PUBLISHED !
+                    </h2>
+                    <div class="card-image has-text-centered">
+                        <figure class="image is-2by1">
+                            <img src="https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif">
+                        </figure>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
 {% block javascripts %}
 {% endblock %}

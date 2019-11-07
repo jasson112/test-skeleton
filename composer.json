@@ -8,12 +8,16 @@
     "easycorp/easyadmin-bundle": "^2.3",
     "friendsofsymfony/user-bundle": "^2.1",
     "symfony/swiftmailer-bundle": "^3.3",
-    "symfony/monolog-bundle": "^3.4"
+    "symfony/monolog-bundle": "^3.4",
+    "symfony/debug": "^4",
+    "symfony/var-dumper": "^4",
+    "vich/uploader-bundle": "^1.8"
   },
   "require-dev": {
     "symfony/profiler-pack": "^1.0",
     "symfony/phpunit-bridge": "^4",
-    "symfony/maker-bundle": "^1.14"
+    "symfony/maker-bundle": "^1.14",
+    "symfony/debug-pack": "^1.0"
   },
   "autoload": {
     "psr-4": {

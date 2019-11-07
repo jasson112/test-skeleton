@@ -8,9 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Add
+ * Ad
  *
- * @ORM\Table(name="add")
+ * @ORM\Table(name="ad")
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  */
 class Ad
@@ -33,9 +33,23 @@ class Ad
     private $name;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer")
+     *
+     */
+    private $status;
+    
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Component", mappedBy="ads")
      */
     private $components;
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name . " | " . $this->id;
+    }
 
     public function __construct()
     {
@@ -86,6 +100,18 @@ class Ad
                 $component->setAds(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

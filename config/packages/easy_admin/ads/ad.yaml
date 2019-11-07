@@ -1,0 +1,22 @@
+easy_admin:
+  entities:
+    MyAd:
+      class: App\Entity\Ad
+      #disabled_actions: ["edit", "delete", "new"]
+      list:
+        fields:
+          - id
+          - name
+          - components
+          - { property: 'status', template: 'admin/status.html.twig' }
+      form:
+        fields:
+          - name
+          - components
+          - property: 'status'
+            type: 'choice'
+            type_options:
+              choices:
+                publishing: 0
+                stopped: 1
+                published: 2

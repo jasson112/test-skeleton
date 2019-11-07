@@ -5,3 +5,7 @@ easy_admin:
       - label: 'General'
         children:
           - { entity: 'User', icon: 'asterisk' }
+      - label: 'Create Ad'
+        children:
+          - { label: 'Component List', entity: 'Component', icon: 'asterisk' }
+          - { label: 'Ad List', entity: 'MyAd', icon: 'asterisk' }

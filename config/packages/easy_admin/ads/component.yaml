@@ -1,0 +1,17 @@
+easy_admin:
+  entities:
+    Component:
+      class: App\Entity\Component
+      #disabled_actions: ["edit", "delete", "new"]
+      list:
+        actions: ["show"]
+        fields:
+          - id
+          - name
+          - type
+          - ads
+      form:
+        fields:
+          - name
+          - ads
+          - { property: 'attachFile', type: 'vich_image' }
