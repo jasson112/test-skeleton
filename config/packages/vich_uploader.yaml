@@ -5,3 +5,4 @@ vich_uploader:
         ad_components:
             uri_prefix: '%path.ad_components%'
             upload_destination: '%kernel.project_dir%/public%path.ad_components%'
+            namer: vich_uploader.namer_uniqid
