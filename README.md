@@ -22,7 +22,7 @@ Los puertos expuestos:
   
 Base de datos: sunmedia
 
-Usuarios:
+Users:
 
   - nombre de usuario: **root**
   - password: **root**
@@ -32,15 +32,25 @@ Usuarios:
   - password: **sunmedia**
   
 Symfony
+===
 
-- actualizar base de datos:
+##Instructions to make the app works
+
+You must run the commands above because with that you can enter in the admin panel 
+
+- Command for database update:
     ```
     php bin/console doctrine:schema:update --force
     ```
 
-- para crear un usuario para el backend:
+- Command for creation of the user admin:
     ```
     php bin/console fos:user:create admin admin@example.com admin --super-admin
     ```
+So after you run this commands you now can enter in the admin panel with the /admin url and you can add users and ads with components
 
+##Troubleshooting
+
+- If you are running the app in Docker have an error with the connection in the database when you run the second command you need to go to .env file and change the connection host to localhost, then run the command again and it will works like a charm.
+    - Note: When you finish the execution of the command you have to return the host to database-sunmedia 
   
