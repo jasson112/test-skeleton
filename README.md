@@ -47,7 +47,9 @@ You must run the commands above because with that you can enter in the admin pan
     ```
     php bin/console fos:user:create admin admin@example.com admin --super-admin
     ```
-So after you run this commands you now can enter in the admin panel with the /admin url and you can add users and ads with components
+- If you want to see all components  serialized you can got to ```/components``` url to see that !
+
+So after you run this commands you now can enter in the admin panel with the ```/admin``` url and you can add users and ads with components
 
 ##Troubleshooting
 

@@ -11,7 +11,8 @@
     "symfony/monolog-bundle": "^3.4",
     "symfony/debug": "^4",
     "symfony/var-dumper": "^4",
-    "vich/uploader-bundle": "^1.8"
+    "vich/uploader-bundle": "^1.8",
+    "symfony/serializer": "^4"
   },
   "require-dev": {
     "symfony/profiler-pack": "^1.0",

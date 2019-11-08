@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -23,6 +24,7 @@ class Component
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"component"})
      */
     private $id;
 
@@ -35,6 +37,7 @@ class Component
      *     maxMessage = "Your component name cannot be longer than {{ limit }} characters"
      * )
      *
+     * @Groups({"component"})
      */
     private $name;
 
@@ -42,6 +45,7 @@ class Component
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
+     * @Groups({"component"})
      *
      */
     private $type;
@@ -49,6 +53,7 @@ class Component
     /**
      * @ORM\Column(type="string", length=255)
      * @var string
+     * @Groups({"component"})
      */
     private $attach;
 
