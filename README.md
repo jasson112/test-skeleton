@@ -56,3 +56,4 @@ So after you run this commands you now can enter in the admin panel with the ```
 - If you are running the app in Docker have an error with the connection in the database when you run the second command you need to go to .env file and change the connection host to localhost, then run the command again and it will works like a charm.
     - Note: When you finish the execution of the command you have to return the host to database-sunmedia 
   
+##Thanks !
